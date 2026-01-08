@@ -1,6 +1,7 @@
-## AIRR-ML-25 submission code (team port)
+## AIRR-ML-25 submission code
 
-This repo now contains our full competition pipeline ported into the provided template structure. Core pieces:
+This repo now contains our full competition submission.
+Core pieces:
 - `submission/predictor.py`: ImmuneStatePredictor with sequential family scoring (kmer, ligo, trunc, posi, seq, optional auto2), training, prediction, and important-sequence ranking.
 - `submission/utils.py`: data loading/validation, k-mer encoders, streaming sequence library builders, output concatenation (with sequence ID normalization).
 - `submission/main.py`: single-train-dir entrypoint matching the template contract.
