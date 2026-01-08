@@ -1,0 +1,6 @@
+pytest~=8.4.2
+pandas~=2.3.2
+numpy~=2.3.2
+tqdm~=4.67.1
+scikit-learn~=1.5.2
+joblib~=1.4.2
