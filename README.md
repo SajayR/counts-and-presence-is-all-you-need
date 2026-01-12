@@ -32,6 +32,35 @@ python run_all_datasets.py \
 ```
 This loops pairs from `get_dataset_pairs`, runs the single-dataset main per pair, then concatenates to `submissions.csv`.
 
+### Docker usage
+- Build locally: `docker build -t predict-airr .`
+- Pull published image (example): `docker pull sajayr/predict-airr:latest`
+- Run on a single train/test pair (mount your data and output):
+  ```bash
+  docker run --rm \
+    -v /path/to/data:/data \
+    -v /path/to/output:/output \
+    sajayr/predict-airr:latest \
+    --train_dir /data/train_datasets/train_dataset_1 \
+    --test_dir /data/test_datasets/test_dataset_1 \
+    --out_dir /output \
+    --n_jobs 4 \
+    --device cpu
+  ```
+- Batch script inside the container:
+  ```bash
+  docker run --rm \
+    -v /path/to/data:/data \
+    -v /path/to/output:/output \
+    sajayr/predict-airr:latest \
+    python run_all_datasets.py \
+      --train_datasets_dir /data/train_datasets \
+      --test_datasets_dir /data/test_datasets \
+      --out_dir /output \
+      --n_jobs 4 \
+      --device cpu
+  ```
+
 ### Programmatic use
 ```python
 from submission.main import main
@@ -43,4 +72,3 @@ for train_dir, test_dirs in pairs:
         continue
     main(train_dir=train_dir, test_dirs=test_dirs, out_dir="/path/to/output", n_jobs=8, device="cpu")
 ```
-
