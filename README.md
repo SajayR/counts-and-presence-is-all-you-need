@@ -34,7 +34,8 @@ This loops pairs from `get_dataset_pairs`, runs the single-dataset main per pair
 
 ### Docker usage
 - Build locally: `docker build -t predict-airr .`
-- Pull published image (example): `docker pull sajayr/predict-airr:latest`
+OR
+- Pull published image: `docker pull sajayr/predict-airr:latest`
 - Run on a single train/test pair (mount your data and output):
   ```bash
   docker run --rm \
